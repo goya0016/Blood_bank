@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="Connector_files/jquery-1.8.2.min.js"></script>
+    <script src="Connector_files/bootstrap.js"></script>
+    <link rel="stylesheet" href="Connector_files/bootstrap.css">
+    <script src="Connector_files/angular.min.js"></script>
+    <script type="text/javascript">
+    var app=angular.module("myapp",[]);
+        app.controller("mycontroller",function($scope,$http)
+        {
+            $scope.jsonAry;
+            $scope.doFetchAllDonors=function()
+            {
+                var bg=$scope.bgroup;
+                alert(bg.bgroup);
+        $http.get("search-all-donors.php?bgroup="+bg.bgroup).then(fxS,fxF);
+                
+                function fxS(response)
+                {
+                    //alert(JSON.stringify(response.data));
+                    $scope.jsonAry=response.data;
+                }
+                function fxF(response)
+                {
+                    alert(response.data);
+                }
+            }
+            
+            $scope.bgroup;
+            //============
+            $scope.bgroupsAry;
+            $scope.doFetchAllGroups=function()
+            {
+            
+                
+        $http.get("all-bgroups.php").then(fxS,fxF);
+                
+                function fxS(response)
+                {
+                    alert(JSON.stringify(response.data));
+                    $scope.bgroupsAry=response.data;
+                }
+                function fxF(response)
+                {
+                    alert(response.data);
+                }
+            }
+        });
+    </script>
+</head>
+<body ng-app="myapp" ng-controller="mycontroller" ng-init="doFetchAllGroups();">
+    
+       <p>
+      
+         select blood group:  
+          <select name="group" 
+          ng-options="record.bgroup for record in bgroupsAry" 
+          ng-model="bgroup" ng-change="doFetchAllDonors();">
+        
+      </select>
+      
+       </p>
+<!--
+       <p>
+        <input type="button" value="Search" 
+        ng-click="doFetchAllDonors();">
+    </p>
+-->
+    
+    
+<!--
+        <table class="table">
+           <tr>
+           <th>d.name</th> 
+           <th>blood group</th>
+           <th>Address</th>
+           <th>ppic</th>
+           <th>city</th>
+           <th>gender</th>
+           <th>mobile</th>
+           <th>email</th>
+           <th>dob</th>
+           <th>nodo</th>
+           <th>disease</th>
+           </tr>
+           
+              <tr ng-repeat="record in jsonAry">
+               <td>{{record.dname}}</td>
+               <td>{{record.bgroup}}</td>
+               <td>{{record.address}}</td>
+               <td>{{record.ppic}}</td>
+               <td>{{record.city}}</td>
+               <td>{{record.gender}}</td>
+               <td>{{record.mobile}}</td>
+               <td>{{record.email}}</td>
+               <td>{{record.dob}}</td>
+               <td>{{record.nodo}}</td>
+               <td>{{record.disease}}</td>
+               
+           </tr>
+            
+    </table>
+-->
+   
+   <div class="row">
+       <div class="col-md-4" ng-repeat="record in jsonAry">
+           <div class="card"  style="width: 50rem">
+               <img src="upload/{{record.ppic}}" height="300" width="100px" class="card-img-top" alt="...">
+               <div class="card-body">
+                   <h5 class="card-title">{{record.dname}}</h5>
+                   <p class="card-text">{{record.address}}</p>
+                   <p class="card-text">{{record.mobile}}</p>
+                   <a href="needy-profile.php" class="btn btn-primary">profile</a>
+               </div>
+           </div>
+       </div>
+   </div>
+    
+</body>
+</html>

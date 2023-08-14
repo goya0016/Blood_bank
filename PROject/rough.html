@@ -1,0 +1,516 @@
+<!DOCTYPE html>                                      <!-- index ali file aaa bai-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="Connector_files/bootstrap.css">
+    <script src="Connector_files/jquery-1.8.2.min.js"></script>
+    <script src="Connector_files/bootstrap.js"></script>
+    
+    
+    <script type="text/javascript">
+        
+    $(document).ready(function(){
+            $(document).ajaxStart(function(){
+                $("#chakkar,#chakkar2").css("display","block");
+            });
+            
+            $(document).ajaxStop(function(){
+                $("#chakkar,#chakkar2").css("display","none");
+            });
+            
+            $("#signUpProcess").click(function(){
+                //AJAX call-Asynchronous java script and XML
+                var email=$("#email").val();
+                var password=$("#password").val();
+                var mobile=$("#mobile").val();
+                var type=$("#type").val();
+                var url="signup-process.php?email="+email+"&password="+password+"&mobile="+mobile+"&type="+type;
+                $.get(url,function(response){
+                    //alert(response);
+                    $("#resp").html(response);
+                    
+                });
+            });
+       
+        
+   // $(document).ready(function(){
+        
+        $("#LoginProcess").click(function(){
+            
+         //   alert();
+            
+            var email2=$("#email2").val();
+            var password2=$("#password2").val();
+            var type2=$("#type2").val();
+            
+            var url2="login-process.php?email=" +email2+ "&password=" +password2+ "&type=" +type2; 
+            $.get(url2,function(response){
+                
+
+                 // alert(response);
+            $("#resp1").html(response);
+            
+        });        
+    });
+});
+    
+    
+    </script>
+ 
+ 
+ <style>
+    #chakkar   
+        {
+            background-image: url(Pics/Gif1.gif); 
+            width: 70px; 
+            height: 70px;
+            background-size: cover; 
+            float: right;
+            display: none;
+        }
+        
+     #chakkar2
+         
+       {
+            background-image: url(Pics/Gif1.gif); 
+            width: 70px; 
+            height: 70px;
+            background-size: cover; 
+            float: right;
+            display: none;
+        }
+     
+     
+    </style>
+    
+    
+</head>
+<body>
+  
+   
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02" style="background-color: dodgerblue">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" id="first" data-toggle="modal" data-target="#exampleModal1">
+  Sign UP
+</button> 
+        
+      </li>
+      <li class="nav-item">
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary2" id="second" data-toggle="modal" data-target="#exampleModal2">
+  Login
+</button>
+      </li>
+      
+    </ul>
+    
+  </div>
+</nav>
+   
+   
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sign UP</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+       
+       
+       
+    <center>
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" name="email" id="email">
+    </div>
+    <div class="form-group col-md-12">
+      <label for="inputPassword4" >Password:</label>
+      <input type="password" class="form-control" name="password" id="password">
+    </div>
+  </div>
+  
+  
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputCity" >Mobile no.:</label>
+      <input type="text" class="form-control" name="mobile" id="mobile">
+    </div>
+    <div class="form-group col-md-12">
+      <label for="inputState" >Type:</label>
+      <select class="form-control" name="type" id="type">
+        <option selected>Choose...</option>
+        <option>Donor</option>
+        <option>Needy</option>
+      </select>
+    </div>
+  </div>
+  
+  <div class="form-group row"> 
+        <div class="col-sm-10">
+        <CENTER>
+  <button type="button" class="btn btn-primary" value="Sign UP" id="signUpProcess">Sign in Here</button>
+      <div id="chakkar"></div>
+       
+         </CENTER>
+      </div>
+ </div>
+        
+    
+        <div class="form-group row">
+           <div class="col-sm-10">
+               <CENTER>
+                  <h3>
+             <div id="resp">*</div>
+                  </h3>
+                </CENTER>
+                 </div>
+           </div>
+        
+        </center>
+      
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+   
+   
+   <!-- Modal -->
+<!--
+<div class="modal fade2" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog2" role="document">
+    <div class="modal-content2">
+      <div class="modal-header2">
+        <h5 class="modal-title2" id="exampleModalLabel2">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body2">
+       
+       
+       
+       <form action="">
+    <center>
+  <div class="form-row2">
+    <div class="form-group col-md-12">
+      <label for="inputEmail422">Email</label>
+      <input type="email" class="form-control2" id="inputEmail42">
+    </div>
+    <div class="form-group col-md-12">
+      <label for="inputPassword42">Password:</label>
+      <input type="password" class="form-control2" id="inputPassword42">
+    </div>
+  </div>
+  
+  
+  
+    
+    <div class="form-group col-md-12">
+      <label for="inputState2">Type:</label>
+      <select id="inputState2" class="form-control2">
+        <option selected>Choose...</option>
+        <option>A</option>
+        <option>B</option>
+      </select>
+    </div>
+  
+  <div class="form-group col-md-6">
+  <button type="submit" class="btn btn-primary2">login</button>
+  <button type="button" class="btn btn-primary3">Forget Password</button>
+  </div>
+
+        
+        </center>
+    </form>
+       
+       
+       
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+-->
+   
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+       
+       
+       <form action="">
+    <center>
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputEmail4" >Email</label>
+      <input type="email" class="form-control"  id="email2">
+    </div>
+    <div class="form-group col-md-12">
+      <label for="inputPassword4">Password:</label>
+      <input type="password" class="form-control" id="password2">
+    </div>
+  </div>
+  
+  
+  <div class="form-row">
+    
+    <div class="form-group col-md-12">
+      <label for="inputState">Type:</label>
+      <select  class="form-control"  id="type2">
+        <option selected>Choose...</option>
+        <option>Donor</option>
+        <option>Needy</option>
+      </select>
+    </div>
+  </div>
+  
+  
+
+        <div class="form-group row"> 
+        <div class="col-sm-10">
+        <CENTER>
+  <button type="button" class="btn btn-primary" value="login" id="LoginProcess">Login</button>
+       <div id="chakkar2"></div>
+         </CENTER>
+      </div>
+ </div>
+        
+    
+        <div class="form-group row">
+           <div class="col-sm-10">
+               <CENTER>
+                  <h3>
+             <div id="resp1">*</div>
+                  </h3>
+                </CENTER>
+                 </div>
+           </div>
+        
+        
+        
+        </center>
+    </form>
+       
+       
+      </div>
+      
+    </div>
+  </div>
+</div>
+    
+</body>
+</html>
+
+
+
+
+----------------------------------------------------------------------------------------------------------
+
+
+<?php                                              <!-- signup di php ali file aaa bai-->
+include_once("mainbond.php");
+//$btn = $_POST["bttnn"];
+
+$email=$_GET["email"];
+$password = $_GET["password"];
+$mobile = $_GET["mobile"];
+$type = $_GET["type"];
+
+$query = "insert into users values('$email','$password','$mobile','$type')";
+mysqli_query($dbcon,$query);
+$msg  = mysqli_error($dbcon);
+if($msg=="")
+    echo "saved....";    
+else
+    echo $msg;
+
+
+//$sql = "INSERT INTO Users (email, password, mobile, type) VALUE('$email','$password','$mobile','$type')";
+//
+//mysqli_query($dbcon,$sql);
+
+
+//$query2 = "select * from Users where email="mail1";
+//mysqli_query($dbcon,$query);
+//$msg  = mysqli_error($dbcon);
+//if($msg=="")
+//    echo "saved....";
+//else
+//    echo $msg;
+
+ ?>
+ 
+ --------------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+<?php                                             <!-- login di php ali file aaa bai-->
+  include_once("mainbond.php");
+//  session_start();
+
+   $email=$_GET["email"];
+   $password = $_GET["password"];
+   $type = $_GET["type"];
+
+   $query="select * from users where email='$email' and password='$password' and type='$type'";
+
+   $table= mysqli_query($dbcon,$query);
+   $count= mysqli_num_rows($table);
+  if($count==1)
+      echo "Welcome....";
+  else
+      echo "Fill it!!!..";
+
+
+//  if(mysqli_num_rows($table)==0)
+//      echo "invalid";
+//   else
+//       $row=mysqli_fetch_array($table);
+//   $_SESSION["email"]=$email;
+//
+//   echo $row["rad"];
+
+?>
+
+
+
+
+//                if(response=="")
+//                    alert("invalid");
+//                else if(response== "donor")
+//                    location.href="DONOR-DASH.php";
+//                    
+//                else if(response=="needy")
+//                    location.href="NEEDY-DASH.php";
+
+
+
+
+<!--                                      --------------------------------->
+
+
+
+
+
+
+<div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationTooltip01">Name</label>
+      <input type="text" class="form-control" id="validationTooltip01" placeholder="name..." required>
+      <div class="valid-tooltip">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationTooltip02">Last name</label>
+      <input type="text" class="form-control" id="validationTooltip02" value="Otto" required>
+      <div class="valid-tooltip">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationTooltipUsername">Username</label>
+      <div class="input-group">
+<!--
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+        </div>
+-->
+        <input type="text" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+        <div class="invalid-tooltip">
+          Please choose a unique and valid username.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+ 
+
+
+
+
+
+
+
+
+------------------------------------------------
+
+
+<nav class="navbar navbar-dark bg-dark">
+  <!-- Navbar content -->
+</nav>
+
+<nav class="navbar navbar-dark bg-primary">
+  <!-- Navbar content -->
+</nav>
+
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <!-- Navbar content -->
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+<table class="table">
+           <tr>
+           <th>d.name</th> 
+           <th>blood group</th>
+           <th>Address</th>
+           <th>ppic</th>
+           <th>city</th>
+           <th>gender</th>
+           <th>mobile</th>
+           <th>email</th>
+           <th>dob</th>
+           <th>nodo</th>
+           <th>disease</th>
+           </tr>
+           
+              <tr ng-repeat="record in jsonAry">
+               <td>{{record.dname}}</td>
+               <td>{{record.bgroup}}</td>
+               <td>{{record.address}}</td>
+               <td>{{record.ppic}}</td>
+               <td>{{record.city}}</td>
+               <td>{{record.gender}}</td>
+               <td>{{record.mobile}}</td>
+               <td>{{record.email}}</td>
+               <td>{{record.dob}}</td>
+               <td>{{record.nodo}}</td>
+               <td>{{record.disease}}</td>
+               
+           </tr>
+            
+    </table>

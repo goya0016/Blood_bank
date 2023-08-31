@@ -369,22 +369,14 @@
    <div class="row row-cols-1 row-cols-md-2">
   <div class="col mb-4">
     <div class="card">
-      <img src="Pics/lllklklIMG_5265.jpg" class="card-img-top" alt="..."  style="height:600px">
+      <img src="..." class="card-img-top" alt="..."  style="height:600px">
       <div class="card-body">
-        <h5 class="card-title">Keshav Sandhu</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <h5 class="card-title">Nipun Goyal</h5>
+        <p class="card-text">Nipun Goyal Email: Goya0016@algonquinlive.com</p>
       </div>
     </div>
   </div>
-  <div class="col mb-4">
-    <div class="card">
-      <img src="Pics/java.jpg" class="card-img-top" alt="..." style="height:600px">
-      <div class="card-body">
-        <h5 class="card-title">Rajesh Kumar Bansal</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
+ 
 </div>
    
                      <!--=-=-=-=-=-=-=-=-=-=----------------------------------------------->
@@ -405,7 +397,7 @@
    <table class="table table-striped table-dark">
     <tr>
      <center>
-      <th>©2020 Keshav Sandhu.All rights reserved.</th>
+      <th>©2020 Nipun Goyal.All rights reserved.</th>
       </center>
     </tr>
  </table>
